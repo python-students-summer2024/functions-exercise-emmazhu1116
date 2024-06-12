@@ -50,6 +50,13 @@ def print_question(die_1_value, die_2_value, question_type):
     :returns: None
     """
     # complete this function below here
+    if question_type == "sum":
+        print("You rolled a {} and a {}... What is the sum of {} and {}?".format(die_1_value, die_2_value, die_1_value, die_2_value))
+    elif question_type == "difference":
+        print("You rolled a {} and a {}... What is the difference between {} and {}?".format(die_1_value, die_2_value, die_1_value, die_2_value))
+    else:
+        print("Invalid question type. Please choose 'sum' or 'difference'.")
+
 
 
 def input_answer():
@@ -63,6 +70,12 @@ def input_answer():
     :returns: The user's answer, as an int, if valid; or -1 if the user's response was not valid.
     """
     # complete this function below here
+    user_input = input("Enter your answer: ").strip()
+    
+    if user_input.isdigit() or (user_input.startswith('-') and user_input[1:].isdigit()):
+        return int(user_input)
+    else:
+        return -1
 
 
 def is_correct_answer(die_1_value, die_2_value, question_type, given_answer):
